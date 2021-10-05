@@ -1,6 +1,6 @@
 steps:
 - id: "Store Values"
-  name: 'ubuntu'
+  name: ubuntu
   entrypoint: bash
   args:
     - -c
@@ -11,12 +11,10 @@ steps:
       expr 1 + 1 > /workspace/second.txt
 # In the next step, everything in the environment is discarded
 # EXCEPT items on "/workspace"
-
-steps:
 - id: "Read Values"
-  name: 'ubuntu'
+  name: ubuntu
   entrypoint: bash
-  args: 
+  args:
     - -c
     - |
       # Read from "/workspace"
