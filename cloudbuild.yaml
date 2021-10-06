@@ -20,3 +20,17 @@ steps:
       # Read from "/workspace"
       echo "First we saved " $(cat /workspace/first.txt) &&
       echo "Then we saved " $(cat /workspace/second.txt)
+- name: 'ubuntu'
+  args: ['bash', './helloworld.sh']
+  env:
+  - 'BUILD=$BUILD_ID'
+  - 'PROJECT_ID=$PROJECT_ID'
+  - 'PROJECT_NUMBER=$PROJECT_NUMBER'
+  - 'REV=$REVISION_ID'
+# Uses the docker build step to build an image called my-image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-image', '.']
+
+# my-image is pushed to Container Registry
+images:
+- 'gcr.io/$PROJECT_ID/my-image'
