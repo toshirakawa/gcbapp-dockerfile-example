@@ -34,7 +34,7 @@ steps:
 images:
 - 'gcr.io/$PROJECT_ID/my-image'
 
-- name: 'gcr.io/$PROJECT_ID/docker:$_MYTAG'
-  args: run 
+- name: 'gcr.io/$PROJECT_ID/docker'
+  args: ['run', '-t', 'gcr.io/$PROJECT_ID/my-image:$_MYTAG', '.'] 
 substitutions:
     _MYTAG: $(cat ./tag.txt)
