@@ -34,7 +34,7 @@ steps:
 # my-image is pushed to Container Registry
 images:
 - 'gcr.io/$PROJECT_ID/my-image'
-- name: gcr.io/$PROJECT_ID/docker:$_MYTAG
+- name: gcr.io/$PROJECT_ID/my-image:$_MYTAG
   args: run 
 substitutions:
     _MYTAG: $(cat ./tag.txt)
