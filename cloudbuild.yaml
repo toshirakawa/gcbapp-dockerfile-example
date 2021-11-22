@@ -35,3 +35,4 @@ images:
 - 'gcr.io/$PROJECT_ID/my-image'
 substitutions:
   _MYTAG: $(cat ./tag.txt)
+
